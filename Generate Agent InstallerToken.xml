@@ -1,0 +1,52 @@
+﻿<LabTech_Expansion
+	Version="200.251"
+	Name="LabTech Script Expansion"
+	Type="PackedScript">
+	<PackedScript>
+		<NewDataSet>
+			<Table>
+				<ScriptId>800</ScriptId>
+				<FolderId>105</FolderId>
+				<ScriptName>Generate Agent InstallerToken</ScriptName>
+				<ScriptNotes>Creates an Installer Token.  The maximum token lifetime is just over 1 year.
+
+Parameter Variables:
+TokenReason: Purpose for Token Creation. Default is "Script &lt;SCRIPTID&gt;, requested by &lt;USER&gt;"
+InstallerType: 1=Windows MSI, 2=Windows EXE, 3=Linux x86, 4=Linux x86_x64, 5=macOS
+ValidityPeriod: Amount of time the token is valid, as X UNITs. (5 DAY, 2 MONTH, etc.) Default is 1 day. Integer units of SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR are supported.
+TargetLocationID: LocationID for the installer. Default is the LocationID for this computer.
+
+Return Variables:
+ExpirationDateUtc: Token Expiration Date String
+InstallerToken:  Generated Token
+InstallerTypeID: InstallerTypeID for the token
+TargetLocationID: LocationID for the token
+
+Darren White - Apex Technology Management - v1.4.1 - 20200708
+Created 20200619</ScriptNotes>
+				<Permission>0,</Permission>
+				<EditPermission>0,</EditPermission>
+				<ComputerScript>1</ComputerScript>
+				<LocationScript>0</LocationScript>
+				<MaintenanceScript>0</MaintenanceScript>
+				<FunctionScript>1</FunctionScript>
+				<LicenseData>H4sIAAAAAAAEAFWPzQqDMBCE74W+Qx7AkE0QNLIESv+gtJe29B7NCrlEiQbq2xelBXsaZme+hcGrbygMdLCjNficejISxaJ4T2HfpTBSNIBi5fD47n2cGTKn6J2dMnZJgZjUGVOggJVVnldQsN0NxaqMjyb6fnxRHHwX5q//h29+Tt6Z0lFRQw68VqC5lGS5bbXkANAoba0tXPvjFwDFest28wEczzbk2wAAAA==</LicenseData>
+				<ScriptData>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</ScriptData>
+				<ScriptVersion>1</ScriptVersion>
+				<ScriptGuid>8de7b040-b209-11ea-af91-000c29aaa7df</ScriptGuid>
+				<ScriptFlags>0</ScriptFlags>
+				<Parameters>TokenReason,InstallerType,ValidityPeriod,TargetLocationID</Parameters>
+			</Table>
+		</NewDataSet>
+		<ScriptFolder>
+			<NewDataSet>
+				<Table>
+					<FolderID>105</FolderID>
+					<ParentID>0</ParentID>
+					<Name>__Examples</Name>
+					<GUID>3a28e85b-3064-4911-98cf-fd641ca4bc2b</GUID>
+				</Table>
+			</NewDataSet>
+		</ScriptFolder>
+	</PackedScript>
+</LabTech_Expansion>
